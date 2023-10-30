@@ -61,7 +61,7 @@ def extract_descriptors(smile: str) -> dict:
 
 
 def get_prediction(data):
-  url = 'https://askai.aiclub.world/a2f0a1b6-ee59-422e-bd32-7baf363496a4'
+  url = 'https://askai.aiclub.world/df95f903-9d7f-41f3-95f3-eb720d50b851'
   r = requests.post(url, data=json.dumps(data))
   response = getattr(r,'_content').decode("utf-8")
   response = json.loads(response)
