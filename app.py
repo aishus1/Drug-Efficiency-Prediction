@@ -88,7 +88,7 @@ st.title("Predictions through Chem Descriptor")
 st.image(IMG_ADDRESS, caption = "Molecular Descriptors")
 
 # tabs
-tab2, tab1 = st.tabs(["Predictions 🖥️","Explanations 📈"])
+tab2, tab1 = st.tabs(["Explanations 📈","Predictions 🖥️"])
 
 with tab1:
     st.header("Extract Descriptors")
