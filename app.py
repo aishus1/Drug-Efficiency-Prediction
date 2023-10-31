@@ -44,6 +44,10 @@ COLUMNS = ['MaxAbsEStateIndex', 'MaxEStateIndex', 'MinEStateIndex', 'MolWt',
        'fr_halogen', 'fr_methoxy', 'fr_para_hydroxylation', 'fr_phenol',
        'fr_phenol_noOrthoHbond', 'fr_unbrch_alkane']
 
+DESCRIPTOR_WORDS = "Canonical SMILES (Simplified Molecular Input Line Entry System) is a type of notation that represents chemical structures through text, describing the structual information of compounds. The pIC50 value is a way of expressing the efficiency of the drug that was input through the canonical SMILES notation."
+PIC50_WORDS = "An IC50 value refers to the concentration of the drug needed to inhibit a biological process by 50%. The pIC50 value is -log (IC50*10^-9 ), which essentially makes the value easier to read and understand."
+SIGNIFICANCE_WORDS = "Overall, this app utlizes the structure given by the canonical SMILES to predict the pIC50 value, or in other words, predict the efficiency of the drug in inhibiting diseases caused by Estrogen receptor alpha (ER-alpha), a protein encoded by the ESR1 gene. A higher pIC50 value refers to a more potent drug in inhibiting its function and preventing disease."
+
 # functions
 def extract_descriptors(smile: str) -> dict:
     descriptors = {}
@@ -134,6 +138,12 @@ with tab2:
 
     st.subheader("What are Molecular Descriptors")
     st.write(MOLECULAR_DESCRIPTORS)
+    st.subheader("What is Canonical SMILES notation?")
+    st.write(DESCRIPTOR_WORDS)
+    st.subheader("What is pIC50?")
+    st.write(PIC50_WORDS)
+    st.subheader("What does this app do?")
+    st.write(SIGNIFICANCE_WORDS)
 
 
 
