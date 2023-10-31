@@ -90,7 +90,7 @@ st.image(IMG_ADDRESS, caption = "Molecular Descriptors")
 # tabs
 tab1, tab2 = st.tabs(["Predictions 🖥️", "Explanations 📈"])
 
-with tab1:
+with tab2:
     st.header("Extract Descriptors")
     # text input 
     smile = st.text_input("Enter the Canonical Smile Notation")
@@ -132,7 +132,7 @@ with tab1:
 
             
 
-with tab2:
+with tab1:
     st.header("Explanation on Descriptors")
 
     st.subheader("What are Molecular Descriptors")
