@@ -63,14 +63,11 @@ def extract_descriptors(smile: str) -> dict:
 
     return descriptors
 
-
-def get_prediction(data):
-  url = 'https://askai.aiclub.world/a2f0a1b6-ee59-422e-bd32-7baf363496a4'
-  r = requests.post(url, data=json.dumps(data))
-  response = getattr(r,'_content').decode("utf-8")
-  response = json.loads(response)
-  response = json.loads(response["body"])
-  return response["predicted_label"]
+@st.cache_resource
+def train_model():
+    with open("chem_final_model","rb") as final_model:
+        model = pickle.load(final_model)
+    return model
 
 
 @st.cache_resource
@@ -80,11 +77,11 @@ def load_model(path):
     
 # load the model
 normalization_model = load_model("normalize_new_model")
-
+predict_model = train_model()
 # web app
 
 # title
-st.title("Predictions through Chem Descriptor")
+st.title("InhibiScore - Predicting Drug Efficacy for ESR1")
 # set an image
 st.image(IMG_ADDRESS, caption = "Molecular Descriptors")
 
@@ -126,10 +123,10 @@ with tab1:
             df_new = pd.DataFrame(get_normalize_values, columns=get_columns)
             records = df_new.to_dict('records')
             with st.spinner("Getting Predictions..."):
-                response = get_prediction(records[0])
+                response = predict_model.predict(df_new.iloc[:,:].values)
                 if response:
                     st.toast("Prediction Completed 🙂")
-                    st.subheader("pIC50 of the Canonical Smile is: {}".format(response))
+                    st.subheader("pIC50 of the molecule is: {}".format(response[0]))
 
             
 
