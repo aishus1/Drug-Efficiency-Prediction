@@ -7,10 +7,14 @@ import pickle
 import requests
 import json
 from sklearn.preprocessing import StandardScaler
+from pickle import TRUE
+from rdkit import Chem
+from rdkit.Chem import Draw
 
 
 # constants
 IMG_ADDRESS = "https://drzinph.com/wp-content/uploads/2020/05/image-6.png"
+MOLE_IMAGE = "mole.png"
 MOLECULAR_DESCRIPTORS = "Molecular descriptors, also known as chemical descriptors or molecular representations, are numerical or symbolic representations of chemical compounds. These descriptors provide a way to quantitatively describe the structural, physical, and chemical properties of molecules. They play a crucial role in various areas of chemistry, including drug discovery, computational chemistry, and chemoinformatics."
 COLUMNS = ['MaxAbsEStateIndex', 'MaxEStateIndex', 'MinEStateIndex', 'MolWt',
        'HeavyAtomMolWt', 'ExactMolWt', 'NumValenceElectrons',
@@ -74,7 +78,17 @@ def train_model():
 def load_model(path):
     with open(path, "rb") as pickle_model:
         return pickle.load(pickle_model)
-    
+
+def visualize_smiles(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is not None:
+        img = Draw.MolToImage(mol)
+        img.save("mole.png")
+        return True
+    else:
+        print("Invalid SMILES representation.")
+        return False
+
 # load the model
 normalization_model = load_model("normalize_new_model")
 predict_model = train_model()
@@ -94,7 +108,13 @@ with tab1:
     smile = st.text_input("Enter the Canonical Smile Notation")
 
     if smile:
-        
+
+        molecule_image = visualize_smiles(smile)
+        if molecule_image:
+            st.image(MOLE_IMAGE, caption='Molecular Structure')
+        else:
+            st.error("Invalid canonical smiles")
+
         descriptor_dict = extract_descriptors(smile)
         #st.dataframe(pd.DataFrame(descriptor_dict, index=[0]))
         with st.sidebar:
