@@ -95,7 +95,7 @@ predict_model = train_model()
 # web app
 
 # title
-st.title("InhibiScore - Predicting Drug Potency for Estrogen Receptor-Positive Breast Cancer by Assessing Interactions with Estrogen Receptor Alpha")
+st.title("InhibiScore - Predicting Drug Potency for Estrogen Receptor-Positive Breast Cancer by Assessing Interactions with ERα")
 # set an image
 st.image(IMG_ADDRESS)
 
