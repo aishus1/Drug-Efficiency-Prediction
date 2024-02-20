@@ -97,7 +97,7 @@ predict_model = train_model()
 # title
 st.title("InhibiScore - Predicting Drug Potency for Estrogen Receptor-Positive Breast Cancer by Assessing Interactions with Estrogen Receptor Alpha")
 # set an image
-st.image(IMG_ADDRESS, caption = None)
+st.image(IMG_ADDRESS)
 
 # tabs
 tab1, tab2 = st.tabs(["Predictions 🖥️", "Explanations 📈"])
