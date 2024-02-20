@@ -95,9 +95,9 @@ predict_model = train_model()
 # web app
 
 # title
-st.title("InhibiScore - Predicting Drug Efficacy for ESR1")
+st.title("InhibiScore - Predicting Drug Potency for Estrogen Receptor-Positive Breast Cancer by Assessing Interactions with Estrogen Receptor Alpha")
 # set an image
-st.image(IMG_ADDRESS, caption = "Molecular Descriptors")
+st.image(IMG_ADDRESS, caption = None)
 
 # tabs
 tab1, tab2 = st.tabs(["Predictions 🖥️", "Explanations 📈"])
