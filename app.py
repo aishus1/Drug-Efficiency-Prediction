@@ -13,7 +13,7 @@ from rdkit.Chem import Draw
 
 
 # constants
-IMG_ADDRESS = "https://drzinph.com/wp-content/uploads/2020/05/image-6.png"
+IMG_ADDRESS = "https://i.ibb.co/nBK7vFH/Screen-Shot-2024-02-20-at-1-50-31-PM.png"
 MOLE_IMAGE = "mole.png"
 MOLECULAR_DESCRIPTORS = "Molecular descriptors, also known as chemical descriptors or molecular representations, are numerical or symbolic representations of chemical compounds. These descriptors provide a way to quantitatively describe the structural, physical, and chemical properties of molecules. They play a crucial role in various areas of chemistry, including drug discovery, computational chemistry, and chemoinformatics."
 COLUMNS = ['MaxAbsEStateIndex', 'MaxEStateIndex', 'MinEStateIndex', 'MolWt',
