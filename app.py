@@ -149,6 +149,10 @@ with tab1:
                     st.subheader("pIC50 of the molecule is: {}".format(response[0]))
                     if response > 6.0:
                            st.write('This is a good molecule that can be tested further for ER⍺-targeted breast cancer treatment!')
+                    elif response > 5.0:
+                           st.write('This molecule has a mediocre pIC50, but it could be a potential target!')
+                    else:
+                           st.write('This molecule does not have a high enough pIC50 value to be considered for ER⍺-targeted breast cancer treatment.')
 
             
 
