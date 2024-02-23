@@ -147,6 +147,8 @@ with tab1:
                 if response:
                     st.toast("Prediction Completed 🙂")
                     st.subheader("pIC50 of the molecule is: {}".format(response[0]))
+                    if response > 6.0:
+                           st.write('This is a good molecule that can be tested further for ER⍺-targeted breast cancer treatment!)
 
             
 
